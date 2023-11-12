@@ -38,6 +38,10 @@ func main() {
 		ViewsLayout: "layouts/main",
 	})
 
+	app.Static("/pub/", "../../pub/")
+
+	//http.Handle("/pub/", http.StripPrefix("/pub/", http.FileServer(http.Dir("../../../pub/"))))
+
 	app.Get("/", titulController.GetTitul)
 
 	app.Listen(cfg.AppPort)
